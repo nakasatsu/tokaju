@@ -33,3 +33,6 @@
 ## 使用素材
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- 
+## 実装機能
+[実装機能リスト](https://docs.google.com/spreadsheets/d/1X-9VtB0NuhSYfTRoNdyHABeFIXsGWId1I1tWsNM3Fx0/edit?usp=sharing)
