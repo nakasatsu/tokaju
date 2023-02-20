@@ -1,0 +1,12 @@
+<h3>マイページ</h3>
+
+<div>
+  <%= image_tag @user.get_profile_image(200, 200) %>
+  <p>email:<%= @user.email %></p>
+  <p>name:<%= @user.name %></p>
+  <p>introduction:<%= @user.introduction %></p>
+</div>
+
+<% if @user == current_user %>
+  <%= link_to "登録情報変更", edit_user_path(@user) %>
+<% end %>

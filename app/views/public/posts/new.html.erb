@@ -7,17 +7,22 @@
   レビュー：<%= f.text_area :review %>
   
   <div id="post_raty">
-    オススメ度：
+    オススメ度：<%= f.hidden_field :rate %>
   </div>
   
   <script>
-  $('#post_raty').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    starHarf: "<%= asset_path('star-half.png') %>",
-    scoreName: 'post[rate]'
-  });
-</script>
+      $(document).raty({
+      let elem = document.querySelector('#post_raty');
+      elem.innerHTML = ""
+      let opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'post[rate]',
+        };
+      raty(elem,opt);
+     });
+    </script>
   
   <%= f.submit "投稿する" %>
 <% end %>

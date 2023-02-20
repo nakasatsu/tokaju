@@ -1,0 +1,9 @@
+<h3>登録情報変更</h3>
+
+<%= form_with model: @user do |f| %>
+  <p>プロフィール画像<%= f.file_field :profile_image, accept: "image/*" %></p>
+  <p>メールアドレス<%= f.text_field :email %></p>
+  <p>ユーザーネーム<%= f.text_field :name %></p>
+  <p>自己紹介<%= f.text_area :introduction %></p>
+  <%= f.submit "保存する" %>
+<% end %>
