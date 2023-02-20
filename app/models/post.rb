@@ -4,5 +4,5 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :post_tags, dependent: :destroy
   
-  has_one_attached :image
+  # has_one_attached :image
 end
