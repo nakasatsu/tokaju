@@ -1,6 +1,6 @@
 <h3>レビューを書く</h3>
 <%= form_with model: @post do |f| %>
-
+  <p><%= f.file_field :image, accept: "image/*" %></p>
   <p>名称：<%= f.text_field :item_name %></p>
   <p>生産者又は製造者：<%= f.text_field :produced_by %></p>
   <p>購入場所：<%= f.text_field :purchased_at %></p>

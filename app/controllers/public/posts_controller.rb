@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:item_name, :purchased_at, :produced_by, :review, :rate)
+    params.require(:post).permit(:item_name, :purchased_at, :produced_by, :review, :rate, :image)
   end
   
 end

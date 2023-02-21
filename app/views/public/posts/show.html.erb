@@ -1,3 +1,6 @@
+<div>
+  <%= image_tag @post.get_image(200, 200) %>
+</div>
 <p>名称：<%= @post.item_name %></p>
 <p>作った人：<%= @post.produced_by %></p>
 <p>購入場所：<%= @post.purchased_at %></p>
