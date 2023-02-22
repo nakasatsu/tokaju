@@ -28,6 +28,9 @@
       <% else %>
         <ul>
           <li>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+          </li>
+          <li>
             <%= link_to "ログイン", new_user_session_path %>
           </li>
           <li>

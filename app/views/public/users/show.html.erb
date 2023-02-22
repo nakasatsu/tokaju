@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <h3>マイページ</h3>
 
 <div>
@@ -7,6 +11,6 @@
   <p>introduction:<%= @user.introduction %></p>
 </div>
 
-<% if @user == current_user %>
+<% if @user == current_user && @user.name != "guestuser" %>
   <%= link_to "登録情報変更", edit_user_path(@user) %>
 <% end %>
