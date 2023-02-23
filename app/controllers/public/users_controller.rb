@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_matching_login_user, except: [:show]
   before_action :ensure_guest_user, only: [:edit]
   
   def favorites
@@ -23,6 +24,13 @@ class Public::UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:email, :name, :introduction, :profile_image)
+  end
+  
+  def is_matching_login_user
+    user_id = params[:id].to_i
+    unless user_id == current_user.id
+      redirect_to root_path
+    end
   end
   
   def ensure_guest_user
