@@ -5,6 +5,11 @@
 <p>作った人：<%= @post.produced_by %></p>
 <p>購入場所：<%= @post.purchased_at %></p>
 <p>レビュー：<%= @post.review %></p>
+<p>タグ：
+  <% @post.tags.each do |tag| %>
+    
+  <% end %>
+</p>
 <div id="rate_<%= @post.id %>">
   <label>オススメ度：</label>
 </div>
