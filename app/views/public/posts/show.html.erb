@@ -7,7 +7,7 @@
 <p>レビュー：<%= @post.review %></p>
 <p>タグ：
   <% @post.tags.each do |tag| %>
-    
+    <%= tag.tag_name %>
   <% end %>
 </p>
 <div id="rate_<%= @post.id %>">

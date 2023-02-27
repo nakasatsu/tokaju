@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # 管理者用
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
+    
+    get '/search' => 'searches#search'
     
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
