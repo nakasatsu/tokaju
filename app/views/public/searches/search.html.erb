@@ -1,2 +1,11 @@
-<h1>Public::Searches#search</h1>
-<p>Find me in app/views/public/searches/search.html.erb</p>
+<h3>"<%= @content %>"の検索結果</h3>
+
+<% @records.each do |post| %>
+  <%= post.item_name %>
+  <%= post.produced_by %>
+  <%= post.purchased_at %>
+  <%= post.review %>
+  <% post.tags.each do |tag| %>
+    <%= tag.tag_name %>
+  <% end %>
+<% end %>
