@@ -9,3 +9,5 @@
   <%= post.item_name %>
   <%= render 'public/posts/rate', post: post %>
 <% end %>
+
+<%= paginate @posts %>
