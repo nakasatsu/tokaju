@@ -1,32 +1,42 @@
 <header>
-  <%= link_to root_path do %>
-    <h1>とかチ産地消ナビ</h1>
-  <% end %>
-      <% if user_signed_in? %>
-        <ul>
-          <li>
-            <%= link_to "レビューを書く", new_post_path %>
-          </li>
-          <li>
-            <%= link_to "マイページ", user_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>とかチ産地消ナビ</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to new_post_path, class: 'nav-link' do %>
+                <i class="fas fa-pen"></i>レビューを書く
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user), class: 'nav-link' do %>
+                <i class="fas fa-user"></i>マイページ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            </li>
+          <% elsif admin_signed_in? %>
+          <% else %>
+            <li>
+              <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+            </li>
+            <li>
+              <%= link_to "ログイン", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "新規会員登録", new_user_registration_path %>
+            </li>
+          <% end %>
         </ul>
-      <% elsif admin_signed_in? %>
-      <% else %>
-        <ul>
-          <li>
-            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path %>
-          </li>
-          <li>
-            <%= link_to "新規会員登録", new_user_registration_path %>
-          </li>
-        </ul>
-        
-      <% end %>
-    </header>
+      </div>
+    </div>
+  </nav>
+</header>
