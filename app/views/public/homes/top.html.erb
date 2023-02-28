@@ -3,3 +3,9 @@
 </div>
 
 <h1>top page</h1>
+
+<% @posts.each do |post| %>
+  <%= image_tag post.get_image(200, 200) %>
+  <%= post.item_name %>
+  <%= render 'public/posts/rate', post: post %>
+<% end %>

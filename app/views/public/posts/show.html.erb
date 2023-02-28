@@ -10,21 +10,7 @@
     <%= tag.tag_name %>
   <% end %>
 </p>
-<div id="rate_<%= @post.id %>">
-  <label>オススメ度：</label>
-</div>
-<script>
-    let raty_<%= @post.id %> = document.querySelector('#rate_<%= @post.id %>');
-        
-    let option_<%= @post.id %> = {
-        starOn: "<%= asset_path('star-on.png') %>",
-        starOff: "<%= asset_path('star-off.png') %>",
-        starHalf: "<%= asset_path('star-half.png') %>",
-        score: '<%= @post.rate %>',
-        readOnly: true,
-      };
-    raty(raty_<%= @post.id %>, option_<%= @post.id %>);
-</script>
+<%= render 'public/posts/rate', post: @post %>
 
 <div>
   <%= form_with model: [@post, @post_comment] do |f| %>
