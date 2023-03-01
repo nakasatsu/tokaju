@@ -26,13 +26,19 @@
           <% elsif admin_signed_in? %>
           <% else %>
             <li>
-              <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+              <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link' do %>
+                ゲストログイン
+              <% end %>
             </li>
             <li>
-              <%= link_to "ログイン", new_user_session_path %>
+              <%= link_to new_user_session_path, class: 'nav-link' do %>
+                ログイン
+              <% end %>
             </li>
             <li>
-              <%= link_to "新規会員登録", new_user_registration_path %>
+              <%= link_to new_user_registration_path, class: 'nav-link' do %>
+                新規会員登録
+              <% end %>
             </li>
           <% end %>
         </ul>

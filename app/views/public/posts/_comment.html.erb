@@ -1,0 +1,14 @@
+<% post.post_comments.each do |post_comment| %>
+    <div>
+      <%= image_tag post_comment.user.get_profile_image(50, 50), class: "mt-3 rounded-circle"; %>
+    </div>
+    <p class="text-muted"><%= post_comment.user.name %></p>
+    <div>
+      <%= post_comment.comment %>
+    </div>
+    <div>
+       <% if post_comment.user == current_user %>
+         <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+       <% end %> 
+    </div>
+<% end %>
