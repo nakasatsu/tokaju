@@ -2,19 +2,25 @@
   <%= flash[:notice] %>
 </div>
 
-<h3>マイページ</h3>
-
-<div>
-  <%= image_tag @user.get_profile_image(200, 200) %>
-  <p>email:<%= @user.email %></p>
-  <p>name:<%= @user.name %></p>
-  <p>introduction:<%= @user.introduction %></p>
+<div class="container">
+  <div class="row">
+    <h3>マイページ</h3>
+    <div>
+      <% if @user == current_user && @user.name != "guestuser" %>
+        <%= link_to "登録情報変更", edit_user_path(@user) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div>
+        <%= render 'public/users/user_info', user: @user %>
+      </div>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <div>
+        <%= render 'public/homes/index', posts: @posts %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <%= render 'public/homes/index', posts: @posts %>
-</div>
-
-<% if @user == current_user && @user.name != "guestuser" %>
-  <%= link_to "登録情報変更", edit_user_path(@user) %>
-<% end %>
