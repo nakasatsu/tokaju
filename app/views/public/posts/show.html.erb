@@ -31,14 +31,14 @@
       </table>
     </div>
   </div>
-  <div class="row col-10 mx-auto bg-light">
+  <div class="row col-11 mx-auto pl-4 bg-light">
     <p>コメント：<%= render 'public/posts/comment_counter', post: @post %></p>
   </div>
 
-  <div class="row col-10 mt-2 mx-auto bg-light">
+  <div class="row col-11 mt-2 mx-auto pl-4 bg-light">
     <%= render 'public/posts/comment_form', post: @post, post_comment: @post_comment %>
   </div>
-  <div class="row col-10 mt-2 mx-auto bg-light">
+  <div class="d-flex flex-column col-11 mt-2 mx-auto pl-4 bg-light">
     <%= render 'public/posts/comment', post: @post %>
   </div>
 </div>

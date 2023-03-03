@@ -1,7 +1,10 @@
 <div class="form-group">
   <%= form_with model: [post, post_comment] do |f| %>
     <%= f.text_area :comment, class: "form-control", style: "width: 100%", rows: '3', placeholder: "コメントを入力" %>
-    <%= f.submit "送信", class: "btn" %>
+    <%= f.submit "送信", class: "btn btn-info" %>
+    <%= button_tag type: "submit", class: "btn btn-outline-info" do %>
+    <i class="fas fa-paper-plane"></i>
+    <% end %>
   <% end %>
 </div>
 
