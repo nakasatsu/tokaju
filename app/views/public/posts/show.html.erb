@@ -28,6 +28,15 @@
             <% end %>
           </td>
         </tr>
+        <tr>
+          <th></th>
+          <td class="text-right">
+            <% if @post.user == current_user %>
+              <%= link_to "編集", edit_post_path(@post), class: 'btn btn-success' %>
+              <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
+            <% end %>
+          </td>
+        </tr>
       </table>
     </div>
   </div>
