@@ -3,6 +3,11 @@ class Public::PostsController < ApplicationController
     @posts = Post.page(params[:page])
   end
   
+  def filter
+    @posts = Post.where(rate: params[:post][:rate]).page(params[:page])
+    render :index
+  end
+  
   def new
     @post = Post.new
   end

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     
+    get '/posts/filter' => 'posts#filter'
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
@@ -37,7 +38,6 @@ Rails.application.routes.draw do
     end
     
     get '/search' => 'searches#search'
-    
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
