@@ -8,8 +8,8 @@
   </div>
   <div class="row">
     <div class="col-md-8">
-      <%= render 'index', posts: @posts %>
-      <%= paginate @posts %>
+      <%= render 'public/posts/index', posts: @posts %>
+      <%= link_to '全てのレビューを見る', posts_path %>
     </div>
   </div>
 </div>

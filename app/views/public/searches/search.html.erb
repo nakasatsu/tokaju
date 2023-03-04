@@ -1,11 +1,8 @@
-<h3>"<%= @content %>"の検索結果</h3>
-
-<% @records.each do |post| %>
-  <%= post.item_name %>
-  <%= post.produced_by %>
-  <%= post.purchased_at %>
-  <%= post.review %>
-  <% post.tags.each do |tag| %>
-    <%= tag.tag_name %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row my-3">
+    <h3>"<%= @content %>"の検索結果</h3>    
+  </div>
+  <div>
+    <%= render 'public/posts/index', posts: @records %>    
+  </div>
+</div>

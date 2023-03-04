@@ -1,4 +1,8 @@
 class Public::PostsController < ApplicationController
+  def index
+    @posts = Post.page(params[:page])
+  end
+  
   def new
     @post = Post.new
   end
@@ -6,7 +10,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    tag_list = params[:post][:tag_name].split(',')
+    tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
     if @post.save
       @post.save_tags(tag_list)
       redirect_to post_path(@post)

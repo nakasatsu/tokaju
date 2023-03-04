@@ -22,9 +22,9 @@
         </tr>
         <tr>
           <th>タグ</th>
-          <td>
+          <td class="d-flex flex-wrap">
             <% @post.tags.each do |tag| %>
-              <%= tag.tag_name %>
+              <li style="list-style: none;", class="mr-3"><%= link_to tag.tag_name, search_path(content: tag.tag_name, model: "tag", method: "perfect") %></li>
             <% end %>
           </td>
         </tr>

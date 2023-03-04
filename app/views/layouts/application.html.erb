@@ -12,8 +12,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-      <main>
-        <%= render 'public/searches/tag_form' %>
+      <main class="my-3 mx-3">
+        <div class="text-right">
+          <%= render 'public/searches/tag_form' %>  
+        </div>
+        
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
