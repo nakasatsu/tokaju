@@ -6,5 +6,15 @@ class Public::SearchesController < ApplicationController
     if @model == 'tag'
       @records = Tag.search_posts_for(@content, @method)
     end
+    @posts = @records
   end
+  
+  def filter
+    @content = params[:post][:content]
+    @method = params[:post][:method]
+    @records = Tag.search_posts_for(@content, @method)
+    @records = @records.select { |record| record.rate == params[:post][:rate].to_i }
+    render :search
+  end
+  
 end

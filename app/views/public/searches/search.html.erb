@@ -2,7 +2,16 @@
   <div class="row my-3">
     <h3>"<%= @content %>"の検索結果</h3>    
   </div>
+  
+  <%= form_with model: @posts, url: search_filter_path, method: :get do |f| %>
+    <%= f.select :rate, [['★', 1.0], ['★★', 2.0], ['★★★', 3.0], ['★★★★', 4.0], ['★★★★★', 5.0]] %>
+    <%= f.hidden_field :content, :value => @content %>
+    <%= f.hidden_field :method, :value => "perfect" %>
+    <%= f.submit "絞り込む" %>
+  <% end %>
+  
   <div>
     <%= render 'public/posts/index', posts: @records %>    
   </div>
+  
 </div>
