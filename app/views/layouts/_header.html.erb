@@ -8,54 +8,54 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <li>
+            <li class="mx-1">
               <%= link_to new_post_path, class: 'nav-link' do %>
-                <i class="fas fa-pen"></i>レビューを書く
+                <i class="fas fa-pen"></i> レビューを書く
               <% end %>
             </li>
-            <li>
+            <li class="mx-1">
               <%= link_to user_path(current_user), class: 'nav-link' do %>
-                <i class="fas fa-user"></i>マイページ
+                <i class="fas fa-user"></i> マイページ
               <% end %>
             </li>
-            <li>
+            <li class="ml-1">
               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-                <i class="fas fa-sign-out-alt"></i>ログアウト
+                <i class="fas fa-sign-out-alt"></i> ログアウト
               <% end %>
             </li>
           <% elsif admin_signed_in? %>
-            <li>
+            <li class="mx-2">
               <%= link_to admin_path, class: 'nav-link' do %>
-                投稿一覧
+                <i class="fas fa-newspaper"></i> 投稿一覧
               <% end %>
             </li>
-            <li>
+            <li class="mx-2">
               <%= link_to admin_users_path, class: 'nav-link' do %>
-                会員一覧
+                <i class="fas fa-users"></i> 会員一覧
               <% end %>
             </li>
-            <li>
+            <li class="ml-2">
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
-                ログアウト
+                <i class="fas fa-sign-out-alt"></i> ログアウト
               <% end %>
             </li>
           <% else %>
-            <li>
+            <li class="mx-1">
               <%= link_to new_user_session_path, class: 'nav-link' do %>
                 ログイン
               <% end %>
             </li>
-            <li>
+            <li class="mx-1">
               <%= link_to new_user_registration_path, class: 'nav-link' do %>
                 新規会員登録
               <% end %>
             </li>
-            <li>
+            <li class="mx-1">
               <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link' do %>
                 ゲストログイン
               <% end %>
             </li>
-            <li>
+            <li class="ml-1">
               <%= link_to new_admin_session_path, class: 'nav-link' do %>
                 管理者
               <% end %>
