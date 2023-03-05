@@ -1,1 +1,9 @@
 <h1>ユーザー詳細画面</h1>
+
+<div>
+  <%= @user.id %>
+  <%= @user.name %>
+  <%= @user.email %>
+  <%= @user.introduction %>
+  <%= @user.created_at.strftime('%Y/%m/%d') %>
+</div>
