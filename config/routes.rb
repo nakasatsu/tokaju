@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get '/' => 'homes#top'
-    get 'users/unsubscribe' => 'users#unsubscribe'
+    get 'users/unsubscribe/:id' => 'users#unsubscribe', as: 'users_unsubscribe'
     resources :users, only: [:index, :show, :destroy]
     resources :posts, only: [:index, :show, :destroy]
   end

@@ -1,0 +1,39 @@
+<div class="col-4">
+  <h3><%= post.item_name %></h3>
+    <%= image_tag post.get_image(400, 400) %>
+    <p>by <%= post.user.name %></p>
+</div>
+<div class="col-7 ml-3">
+  <%= render 'public/posts/rate', post: post %>
+  <table class="table mt-3">
+    <tr>
+      <th style="width: 30%">つくった人</th>
+      <td style="width: 70%"><%= post.produced_by %></td>
+    </tr>
+    <tr>
+      <th>購入場所</th>
+      <td><%= post.purchased_at %></td>
+    </tr>
+    <tr>
+      <th>レビュー</th>
+      <td><%= post.review %></td>
+    </tr>
+    <tr>
+      <th>タグ</th>
+      <td class="d-flex flex-wrap">
+        <% post.tags.each do |tag| %>
+          <li style="list-style: none;", class="mr-3"><%= link_to tag.tag_name, search_path(content: tag.tag_name, model: "tag", method: "perfect") %></li>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td class="text-right">
+        <% if post.user == current_user %>
+          <%= link_to "編集", edit_post_path(post), class: 'btn btn-success' %>
+          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

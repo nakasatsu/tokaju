@@ -2,7 +2,7 @@
   <div class="card mb-3" style="max-width: 1080px;">
     <div class="row no-gutters">
       <div class="col-md-3">
-        <%= link_to post_path(post.id) do %>
+        <%= link_to admin_post_path(post.id) do %>
           <div class="bd-placeholder-img card-img-top">
             <%= image_tag post.get_image(200, 200) %>
           </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">
-            <%= link_to post_path(post.id) do %>
+            <%= link_to admin_post_path(post.id) do %>
               <%= post.item_name %>
             <% end %>
           </h5>
@@ -34,7 +34,7 @@
               <small>
                 タグ：
                 <% post.tags.each do |tag| %>
-                  <%= link_to tag.tag_name, search_path(content: tag.tag_name, model: "tag", method: "perfect"), class: 'mr-2' %>
+                  <%= tag.tag_name %>
                 <% end %>
               </small>
               <small>コメント <%= render 'public/posts/comment_counter', post: post %></small>
