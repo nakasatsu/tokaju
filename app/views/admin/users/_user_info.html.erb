@@ -21,4 +21,6 @@
     <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
   </tr>
 </table>
-<%= link_to "ユーザーを削除", admin_users_unsubscribe_path(@user), class: 'btn btn-danger' %>
+<% if user.name != "guestuser" %>
+  <%= link_to "ユーザーを削除", admin_users_unsubscribe_path(user), class: 'btn btn-danger' %>
+<% end %>
