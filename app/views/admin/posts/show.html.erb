@@ -4,7 +4,7 @@
     <div class="col-4">
       <h3><%= @post.item_name %></h3>
       <%= image_tag @post.get_image(400, 400) %>
-      <p>by <%= @post.user.name %></p>
+      <p>by <%= link_to @user.name, admin_user_path(@user) %></p>
     </div>
     <div class="col-7 ml-3">
       <%= render 'public/posts/rate', post: @post %>

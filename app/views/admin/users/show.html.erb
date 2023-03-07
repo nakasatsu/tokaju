@@ -1,16 +1,12 @@
-<h1>ユーザー詳細画面</h1>
-
-<div>
-  <%= link_to "ユーザーを削除", admin_users_unsubscribe_path(@user) %>
-</div>
-<div>
-  <%= image_tag @user.get_profile_image(100, 100) %>
-  <%= @user.id %>
-  <%= @user.name %>
-  <%= @user.email %>
-  <%= @user.introduction %>
-  <%= @user.created_at.strftime('%Y/%m/%d') %>
-</div>
-<div>
-  <%= render 'admin/posts/index', posts: @posts %>
+<div class="mx-5">
+  <h3>ユーザー詳細画面</h3>
+  
+  <div class="d-flex justify-content-between mt-5">
+    <div class="col-3">
+      <%= render 'admin/users/user_info', user: @user %>
+    </div>
+    <div class="col-8">
+      <%= render 'admin/posts/index', posts: @posts %>
+    </div>
+  </div>
 </div>

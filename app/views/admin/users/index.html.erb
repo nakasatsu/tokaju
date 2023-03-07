@@ -1,4 +1,30 @@
-<h1>会員一覧</h1>
+<div class="container">
+  <h3>ユーザー一覧</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>ユーザーネーム</th>
+        <th>メールアドレス</th>
+        <th>登録年月日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(60, 60) %></td>
+        <td><%= user.id %></td>
+        <td><%= link_to user.name, admin_user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
 
 <% @users.each do |user| %>
   <div>

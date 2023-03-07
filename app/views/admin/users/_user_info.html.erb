@@ -1,0 +1,24 @@
+<%= image_tag user.get_profile_image(100, 100) %>
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <td><%= user.id %></td>
+  </tr>
+  <tr>
+    <th>ユーザーネーム</th>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= user.email %></td>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <td><%= user.introduction %></td>
+  </tr>
+  <tr>
+    <th>登録年月日</th>
+    <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+  </tr>
+</table>
+<%= link_to "ユーザーを削除", admin_users_unsubscribe_path(@user), class: 'btn btn-danger' %>

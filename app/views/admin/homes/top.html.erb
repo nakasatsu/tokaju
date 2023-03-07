@@ -1,4 +1,13 @@
-<h1>Top Page</h1>
 
-<%= render 'admin/posts/index', posts: @posts %>
-<%= paginate @posts %>
+
+<div class="container">
+  <div class="row">
+    <h1>Top Page</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-9 mx-auto">
+      <%= render 'admin/posts/index', posts: @posts %>
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>
