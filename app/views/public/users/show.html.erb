@@ -3,6 +3,7 @@
     <h3>マイページ</h3>
     <div>
       <% if @user == current_user && @user.name != "guestuser" %>
+        <%= link_to "お気に入り投稿一覧", favorites_user_path(@user) %>
         <%= link_to "登録情報変更", edit_user_path(@user) %>
       <% end %>
     </div>
