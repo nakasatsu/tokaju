@@ -30,6 +30,9 @@ class Post < ApplicationRecord
       self.tags << post_tag
     end
   end   
-    
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
     
 end

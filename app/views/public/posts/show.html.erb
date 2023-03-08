@@ -4,6 +4,7 @@
   </div>
   <div class="row col-11 mx-auto pl-4 bg-light">
     <p>コメント：<%= render 'public/posts/comment_counter', post: @post %></p>
+    <%= render 'public/posts/favorite', post: @post %>
   </div>
 
   <div class="row col-11 mt-2 mx-auto pl-4 bg-light">
