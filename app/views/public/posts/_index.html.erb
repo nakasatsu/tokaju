@@ -37,7 +37,10 @@
                   <%= link_to tag.tag_name, search_path(content: tag.tag_name, model: "tag", method: "perfect"), class: 'mr-2' %>
                 <% end %>
               </small>
-              <small>コメント <%= render 'public/posts/comment_counter', post: post %></small>
+              <small>
+                コメント <%= render 'public/posts/comment_counter', post: post %> |
+                いいね <%= post.favorites.count %>
+              </small>
             </div>
           </p>
         </div>
