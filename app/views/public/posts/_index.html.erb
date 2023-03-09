@@ -38,8 +38,8 @@
                 <% end %>
               </small>
               <small>
-                コメント <%= render 'public/posts/comment_counter', post: post %> |
-                いいね <%= post.favorites.count %>
+                <i class="fas fa-comment"></i> <%= render 'public/posts/comment_counter', post: post %> 
+                <i class="fas fa-heart ml-2"></i> <%= post.favorites.count %>
               </small>
             </div>
           </p>

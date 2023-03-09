@@ -1,11 +1,11 @@
 <div class="container my-5 mx-auto">
-  <div class="d-flex col-11 mx-auto">
+  <div class="d-flex justify-content-between col-11 bg-light mx-auto">
     <div class="col-4">
       <h3><%= @post.item_name %></h3>
       <%= image_tag @post.get_image(400, 400) %>
-      <p>by <%= @post.user.name %></p>
+      <p>by <%= link_to @post.user.name, user_path(@post.user) %></p>
     </div>
-    <div class="col-7 ml-3">
+    <div class="col-7">
       <%= render 'public/posts/rate', post: @post %>
       <table class="table mt-3">
         <tr>
@@ -40,8 +40,10 @@
       </table>
     </div>
   </div>
-  <div class="row col-11 mx-auto pl-4 bg-light">
-    <p>コメント：<%= render 'public/posts/comment_counter', post: @post %></p>
+  <div class="row col-11 mx-auto bg-light">
+    <p class="mx-3">
+      <i class="fas fa-comment"></i> <%= render 'public/posts/comment_counter', post: @post %> 
+    </p>
     <%= render 'public/posts/favorite', post: @post %>
   </div>
 

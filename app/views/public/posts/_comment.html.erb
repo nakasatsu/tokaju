@@ -1,14 +1,16 @@
 <% post.post_comments.each do |post_comment| %>
-<div class="media mb-3">
-  <%= image_tag post_comment.user.get_profile_image(60, 60), class: "align-self-start mt-3 rounded-circle"; %>
-  <div class="media-body ml-3">
-    <p class="mt-0 font-weight-bold"><%= post_comment.user.name %></p>
-    <p><%= post_comment.comment %></p>
-    <p class="mb-0">
-      <% if post_comment.user == current_user %>
-         <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: 'btn btn-link btn-sm' %>
-       <% end %>
-    </p>
+  <div class="media mb-3">
+    <%= image_tag post_comment.user.get_profile_image(60, 60), class: "align-self-start mt-3 rounded-circle"; %>
+    <div class="media-body ml-3">
+      <p class="mt-0 font-weight-bold">
+        <%= link_to post_comment.user.name, user_path(post_comment.user) %>
+      </p>
+      <p><%= post_comment.comment %></p>
+      <p class="mb-0">
+        <% if post_comment.user == current_user %>
+          <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: 'btn btn-link btn-sm' %>
+        <% end %>
+      </p>
+    </div>
   </div>
-</div>
 <% end %>

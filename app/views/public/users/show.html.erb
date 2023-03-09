@@ -1,14 +1,18 @@
 <div class="container">
-  <div class="row">
+  <div class="row mb-5 mt-4">
     <% if @user == current_user %>
       <h3>マイページ</h3>
     <% else %>
       <h3><%= link_to @user.name, user_path(@user) %> <small>さんのページ</small></h3>
     <% end %>
-    <div>
+    <div class="ml-auto">
       <% if @user == current_user && @user.name != "guestuser" %>
-        <%= link_to "お気に入り投稿一覧", favorites_user_path(@user) %>
-        <%= link_to "登録情報変更", edit_user_path(@user) %>
+        <%= link_to favorites_user_path(@user), class: 'btn btn-outline-info btn-sm' do %>
+          <i class="fas fa-heart"></i> お気に入り
+        <% end %>
+        <%= link_to edit_user_path(@user), class: 'btn btn-outline-info btn-sm' do %>
+          <i class="fas fa-cog"></i> 登録情報変更
+        <% end %>
       <% end %>
     </div>
   </div>
