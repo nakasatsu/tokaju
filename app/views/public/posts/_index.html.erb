@@ -17,7 +17,7 @@
             <p class="card-text text-right">
               <small class="text-muted">
                 <%= post.created_at.strftime('%Y/%m/%d') %> |
-                by <%= post.user.name %>
+                by <%= link_to post.user.name, user_path(post.user) %>
               </small>
             </p>
           </div>

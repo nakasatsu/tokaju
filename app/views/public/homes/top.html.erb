@@ -3,11 +3,11 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <h1>top page</h1>
+  <div>
+    <h3>最近のレビュー</h3>
   </div>
   <div class="row">
-    <div class="col-md-9 mx-auto">
+    <div class="col-md-10 mx-auto my-3">
       <%= render 'public/posts/index', posts: @posts %>
       <%= link_to '全てのレビューを見る', posts_path %>
     </div>
