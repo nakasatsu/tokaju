@@ -1,42 +1,37 @@
+<%= render 'layouts/errors', obj: @post %>
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <div class="col-md-6 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">レビューを書く</h5>
       <div class="form-body p-4">
         <%= form_with model: @post do |f| %>
           <%= f.file_field :image, accept: "image/*" %>
-          
           <div class="field mb-3 mt-4">
             <%= f.label '名称' %><br>
-            <%= f.text_field :item_name, placeholder: '例：　とうもろこし', class: 'form-control' %>
+            <%= f.text_field :item_name, required: true, placeholder: '例：　とうもろこし', class: 'form-control' %>
           </div>
           <div class="field mb-3">
             <%= f.label '生産者 又は 製造者' %>
-            <%= f.text_field :produced_by, placeholder: '例：　〇〇農園', class: 'form-control' %>
+            <%= f.text_field :produced_by, required: true, placeholder: '例：　〇〇農園', class: 'form-control' %>
           </div>
           <div class="field mb-3">
             <%= f.label '購入場所' %><br>
-            <%= f.text_field :purchased_at, placeholder: '例：　道の駅〇〇', class: 'form-control' %>
+            <%= f.text_field :purchased_at, required: true, placeholder: '例：　道の駅〇〇', class: 'form-control' %>
           </div>
-          <div class="input-group mb-3">
+          <div class="field mb-3">
             <%= f.label 'レビュー' %><br>
-            <%= f.text_area :review, placeholder: '例：　品種は「ゴールドラッシュ」。シンプルに茹でて食べました。甘くてみずみずしく、とても美味しかったです。', class: 'form-control' %>
+            <%= f.text_area :review, rows: '5', required: true, placeholder: '例：　品種は「ゴールドラッシュ」。シンプルに茹でて食べました。甘くてみずみずしく、とても美味しかったです。', class: 'form-control' %>
           </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <i class="fas fa-lock"></i>
-              </span>
-            </div>
-            
-            <%= f.text_field :tag_name, placeholder: 'スペースで区切る', class: 'form-control' %>
+          <div class="field mb-3">
+            <%= f.label 'タグ（スペース区切り）' %><br>
+            <%= f.text_field :tag_name, required: true, placeholder: '例：　野菜　とうもろこし　〇〇農園', class: 'form-control' %>
           </div>
-          <%= f.submit "投稿する", class: 'btn btn-block btn-info mt-5' %>
-          
+          <div class="field mb-3", id="post_raty">
+            <%= f.label '評価' %><br>
+            <%= f.hidden_field :rate %>
+          </div>
+          <%= f.submit "投稿する", class: 'btn btn-info mt-5' %>
         <% end %>
-        <div class="text-center text-muted mt-4">
-          
-        </div>
       </div>
     </div>
   </div>

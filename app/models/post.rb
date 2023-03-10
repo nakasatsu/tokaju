@@ -8,6 +8,13 @@ class Post < ApplicationRecord
   
   has_one_attached :image
   
+  validates :item_name, presence: true
+  validates :produced_by, presence: true
+  validates :purchased_at, presence: true
+  validates :review, presence: true
+  validates :tag_name, presence: true
+  validates :rate, presence: true
+  
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image_food.png')
