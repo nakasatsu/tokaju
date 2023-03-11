@@ -12,7 +12,6 @@ class Post < ApplicationRecord
   validates :produced_by, presence: true
   validates :purchased_at, presence: true
   validates :review, presence: true
-  validates :tag_name, presence: true
   validates :rate, presence: true
   
   def get_image(width, height)
