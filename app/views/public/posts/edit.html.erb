@@ -1,9 +1,38 @@
-<h3>レビューを編集</h3>
-  <%= form_with model: @post do |f| %>
-    <p>名称：<%= f.text_field :item_name %></p>
-    <p>生産者又は製造者：<%= f.text_field :produced_by %></p>
-    <p>購入場所：<%= f.text_field :purchased_at %></p>
-    <p>レビュー：<%= f.text_area :review %></p>
-    <p>タグ：<%= f.text_field :tag_name, placeholder: 'スペースで区切る' %></p>
-    <%= f.submit "保存する", class: 'btn btn-info' %>
-  <% end %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-6 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">レビューを編集</h5>
+      <div class="form-body p-4">
+        <%= image_tag @post.get_image(100, 100), class: 'mb-3' %>
+        <%= form_with model: @post do |f| %>
+          <%= f.file_field :image, accept: "image/*" %>
+          <div class="field mb-3 mt-4">
+            <%= f.label '名称' %><br>
+            <%= f.text_field :item_name, class: 'form-control' %>
+          </div>
+          <div class="field mb-3">
+            <%= f.label '生産者 又は 製造者' %>
+            <%= f.text_field :produced_by, class: 'form-control' %>
+          </div>
+          <div class="field mb-3">
+            <%= f.label '購入場所' %><br>
+            <%= f.text_field :purchased_at, class: 'form-control' %>
+          </div>
+          <div class="field mb-3">
+            <%= f.label 'レビュー' %><br>
+            <%= f.text_area :review, class: 'form-control' %>
+          </div>
+          <div class="field mb-3">
+            <%= f.label 'タグ（スペース区切り）' %><br>
+            <%= f.text_field :tag_name, class: 'form-control' %>
+          </div>
+          <div class="field mb-3">
+            <%= f.label '評価' %><br>
+            <%= render 'public/posts/rate', post: @post %>
+          </div>
+          <%= f.submit "保存する", class: 'btn btn-info mt-5' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
