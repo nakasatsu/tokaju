@@ -26,7 +26,7 @@
           </div>
           <div class="field mb-3">
             <%= f.label 'タグ（スペース区切り）' %><br>
-            <%= f.text_field :tag_name, class: 'form-control' %>
+            <%= f.text_field :tag_name, class: 'form-control', value: @tags %>
           </div>
           <div class="field mb-3">
             <%= f.label '評価' %><br>

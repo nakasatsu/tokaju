@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :is_matching_login_user, except: [:index, :filter, :show]
   
   def index
     @posts = Post.order(created_at: :desc).page(params[:page])
@@ -39,7 +40,15 @@ class Public::PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
-    @tag = @post.tags
+    # カラの配列を用意
+    tags = []
+    # @postに紐づくtagを取得し配列[]に格納
+    @post.tags.each do |tag|
+      tags << tag.tag_name
+    end
+    # tags => ["test1", "test2"]
+    @tags = tags.join(' ') # "test1 test2"
+    # 配列を一つの文字列に加工し、valueに渡す。
   end
   
   def update
@@ -57,6 +66,15 @@ class Public::PostsController < ApplicationController
   
   def post_params
     params.require(:post).permit(:item_name, :purchased_at, :produced_by, :review, :rate, :image)
+  end
+  
+  def is_matching_login_user
+    # post_id = params[:id].to_i
+    post = Post.find(params[:id])
+    user_id = post.user_id
+    unless user_id == current_user.id
+      redirect_to post_path(post), notice: '他のユーザーの投稿編集画面へは遷移できません。'
+    end
   end
   
 end
