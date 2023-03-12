@@ -1,5 +1,5 @@
 <% post.post_comments.each do |post_comment| %>
-  <div class="media mb-3">
+  <div class="media mb-2 pb-2 border-bottom">
     <%= image_tag post_comment.user.get_profile_image(60, 60), class: "align-self-start mt-3 rounded-circle"; %>
     <div class="media-body ml-3">
       <p class="mt-0 font-weight-bold">

@@ -1,11 +1,11 @@
 <div class="container my-5 mx-auto">
   <div class="d-flex justify-content-between col-11 bg-light mx-auto">
-    <div class="col-4">
+    <div class="col-4 bg-secondary">
       <h3><%= @post.item_name %></h3>
-      <%= image_tag @post.get_image(400, 400) %>
+      <%= image_tag @post.get_image(400, 400), class: "img-fluid" %>
       <p>by <%= link_to @post.user.name, user_path(@post.user) %></p>
     </div>
-    <div class="col-7">
+    <div class="col-7 bg-secondary">
       <%= render 'public/posts/rate', post: @post %>
       <table class="table mt-3">
         <tr>
@@ -47,7 +47,7 @@
     <%= render 'public/posts/favorite', post: @post %>
   </div>
 
-  <div class="row col-11 mt-2 mx-auto pl-4 bg-light">
+  <div class="d-flex justify-content-between col-11 bg-light mx-auto">
     <%= render 'public/posts/comment_form', post: @post, post_comment: @post_comment %>
   </div>
   <div class="d-flex flex-column col-11 mt-2 mx-auto pl-4 bg-light">
