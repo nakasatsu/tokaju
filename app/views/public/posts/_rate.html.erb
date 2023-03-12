@@ -2,9 +2,9 @@
   
 </div>
 <script>
-    let raty_<%= post.id %> = document.querySelector('#rate_<%= post.id %>');
-        
-    let option_<%= post.id %> = {
+    var raty_<%= post.id %> = document.querySelector('#rate_<%= post.id %>');
+    raty_<%= post.id %>.innerHTML ='';
+    var option_<%= post.id %> = {
         starOn: "<%= asset_path('star-on.png') %>",
         starOff: "<%= asset_path('star-off.png') %>",
         starHalf: "<%= asset_path('star-half.png') %>",
