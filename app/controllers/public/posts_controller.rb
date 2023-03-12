@@ -2,7 +2,7 @@ class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.order(created_at: :desc).page(params[:page])
   end
   
   def filter
@@ -39,12 +39,18 @@ class Public::PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
+    @tag = @post.tags
   end
   
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post)
+    tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
+    if @post.update(post_params)
+      @post.save_tags(tag_list)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
   
   private

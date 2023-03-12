@@ -5,6 +5,7 @@
       <h5 class="text-dark bg-light p-4 mb-0">レビューを書く</h5>
       <div class="form-body p-4">
         <%= form_with model: @post do |f| %>
+          <%= f.label '商品画像' %><br>
           <%= f.file_field :image, accept: "image/*" %>
           <div class="field mb-3 mt-4">
             <%= f.label '名称' %><br>

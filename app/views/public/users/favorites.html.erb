@@ -1,3 +1,12 @@
-<h3>お気に入り投稿一覧</h3>
-
-<%= render 'public/posts/index', posts: @posts %>
+<div class="container">
+  <div class="col-md-10 mx-auto">
+    <h3>お気に入りレビュー一覧</h3>
+  </div>
+  <div class="col-md-11 text-right">
+  </div>
+  <div class="col-md-10 mx-auto my-5">
+    <%= render 'public/posts/index', posts: @posts %>
+  </div>
+  <div class="col-3 mx-auto my-3 pt-3">
+  </div>
+</div>

@@ -11,7 +11,7 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc).page(params[:page])
   end
   
   def edit
@@ -20,8 +20,11 @@ class Public::UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
   
   private
@@ -33,7 +36,7 @@ class Public::UsersController < ApplicationController
   def is_matching_login_user
     user_id = params[:id].to_i
     unless user_id == current_user.id
-      redirect_to root_path
+      redirect_to user_path(user_id), notice: '他のユーザーのプロフィール編集画面へは遷移できません。'
     end
   end
   

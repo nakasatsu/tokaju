@@ -1,4 +1,18 @@
 <%= image_tag user.get_profile_image(200, 200) %>
-  <p>email:<%= user.email %></p>
-  <p>name:<%= user.name %></p>
-  <p>introduction:<%= user.introduction %></p>
+
+<table class="table table-borderless">
+  <% if user == current_user && user.name != 'guestuser' %>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= user.email %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <th>ユーザーネーム</th>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <td><%= user.introduction %></td>
+  </tr>
+</table>
