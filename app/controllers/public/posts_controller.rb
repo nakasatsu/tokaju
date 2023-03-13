@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :is_matching_login_user, except: [:index, :filter, :show]
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   
   def index
     @posts = Post.order(created_at: :desc).page(params[:page])
@@ -19,8 +19,15 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-    if @post.save
+    if tag_list == []
+      tag = Tag.new()
+      tag.tag_name = ""
+      tag.save
+      flash[:notice] = "タグが入力されていません。"
+      render :new
+    elsif @post.save
       @post.save_tags(tag_list)
+      flash[:notice] = "レビューが投稿されました！"
       redirect_to post_path(@post)
     else
       render :new
@@ -54,8 +61,15 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-    if @post.update(post_params)
+    if tag_list == []
+      tag = Tag.new()
+      tag.tag_name = ""
+      tag.save
+      flash[:notice] = "タグが入力されていません。"
+      render :new
+    elsif @post.update(post_params)
       @post.save_tags(tag_list)
+      flash[:notice] = "レビューが更新されました。"
       redirect_to post_path(@post)
     else
       render :edit
