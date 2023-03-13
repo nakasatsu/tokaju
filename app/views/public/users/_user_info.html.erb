@@ -1,4 +1,7 @@
-<%= image_tag user.get_profile_image(200, 200) %>
+<div class="ml-3">
+  <%= image_tag user.get_profile_image(150, 150) %>
+</div>
+
 
 <table class="table table-borderless">
   <% if user == current_user && user.name != 'guestuser' %>
