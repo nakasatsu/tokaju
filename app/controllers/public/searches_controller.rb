@@ -6,7 +6,9 @@ class Public::SearchesController < ApplicationController
     if @model == 'tag'
       @records = Tag.search_posts_for(@content, @method)
     end
-    @posts = @records
+    if @records != []
+      @posts = @records
+    end
   end
   
   def filter
