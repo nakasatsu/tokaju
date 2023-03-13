@@ -16,10 +16,12 @@
     </div>
   </div>
   <div>
-    <% if @records == [] %>
+    <% if @records == nil %>
       <p class="text-secondary">商品が見つかりませんでした。</p>
     <% end %>
     <%= render 'public/posts/index', posts: @records %>    
   </div>
-  
+  <div>
+    <%= paginate @records %>
+  </div>
 </div>

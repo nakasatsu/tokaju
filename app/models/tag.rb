@@ -9,7 +9,7 @@ class Tag < ApplicationRecord
       tags = Tag.where(tag_name: content)
     end
     
-    return tags.inject(init = []) {|result, tag| result + tag.posts}
+    return tags.inject(init = []) {|result, tag| result + tag.posts.ids}
   end
   
 end

@@ -5,8 +5,9 @@ class Public::SearchesController < ApplicationController
     @method = params[:method]
     if @model == 'tag'
       @records = Tag.search_posts_for(@content, @method)
+      @records = Post.where(id: @records).page(params[:page])
     end
-    if @records != []
+    if @records != nil
       @posts = @records
     end
   end
