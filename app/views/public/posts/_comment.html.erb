@@ -3,7 +3,11 @@
     <%= image_tag post_comment.user.get_profile_image(60, 60), class: "align-self-start mt-3 rounded-circle"; %>
     <div class="media-body ml-3">
       <p class="mt-0 font-weight-bold">
-        <%= link_to post_comment.user.name, user_path(post_comment.user) %>
+        <% if user_signed_in? %>
+          <%= link_to post_comment.user.name, user_path(post_comment.user) %>
+        <% elsif admin_signed_in? %>
+          <%= link_to post_comment.user.name, admin_user_path(post_comment.user) %>
+        <% end %>
       </p>
       <p><%= post_comment.comment %></p>
       <p class="mb-0">

@@ -1,10 +1,8 @@
 <div class="container">
-  <div class="row">
-    <h1>Top Page</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-9 mx-auto">
-      <%= render 'admin/posts/index', posts: @posts %>
+  <div class="col-md-10 mx-auto">
+    <h3 class="my-5">投稿一覧</h3>
+    <%= render 'admin/posts/index', posts: @posts %>
+    <div class="d-flex justify-content-center pt-4">
       <%= paginate @posts %>
     </div>
   </div>

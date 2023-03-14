@@ -3,10 +3,10 @@
 </div>
 
 
-<table class="table table-borderless">
+<table class="table table-borderless mt-3">
   <% if user == current_user && user.name != 'guestuser' %>
   <tr>
-    <th>メールアドレス</th>
+    <th style="width: 35%;">メールアドレス</th>
     <td><%= user.email %></td>
   </tr>
   <% end %>
