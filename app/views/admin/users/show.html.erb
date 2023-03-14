@@ -7,6 +7,9 @@
     </div>
     <div class="col-8 pl-5">
       <%= render 'admin/posts/index', posts: @posts %>
+      <div class="d-flex justify-content-center pt-4">
+        <%= paginate @posts %>  
+      </div>
     </div>
   </div>
 </div>
