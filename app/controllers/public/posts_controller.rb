@@ -37,6 +37,11 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    # 以下、閲覧履歴を保存するためのコード
+    new_history = BrowsingHistory.new
+    new_history.user_id = current_user.id
+    new_history.post_id = @post.id
+    new_history.save
   end
   
   def destroy
