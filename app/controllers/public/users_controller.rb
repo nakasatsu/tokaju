@@ -6,6 +6,7 @@ class Public::UsersController < ApplicationController
   def browse
     @user = User.find(params[:id])
     browsing_history = BrowsingHistory.where(user_id: @user.id).pluck(:post_id)
+    # @posts = Post.where(id: browsing_history)
     @posts = Post.find(browsing_history)
   end
   
@@ -43,7 +44,7 @@ class Public::UsersController < ApplicationController
   def is_matching_login_user
     user_id = params[:id].to_i
     unless user_id == current_user.id
-      redirect_to user_path(user_id), notice: '他のユーザーのプロフィール編集画面へは遷移できません。'
+      redirect_to user_path(user_id), notice: '他のユーザーの画面へは遷移できません。'
     end
   end
   
