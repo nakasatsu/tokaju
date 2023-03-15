@@ -41,7 +41,18 @@ class Public::PostsController < ApplicationController
     new_history = BrowsingHistory.new
     new_history.user_id = current_user.id
     new_history.post_id = @post.id
+    # 同一記事の重複チェック、重複時は古い記事を削除
+    if current_user.browsing_histories.exists?(post_id: params[:id])
+      old_history = current_user.browsing_histories.find_by(post_id: params[:id])
+      old_history.destroy
+    end
     new_history.save
+    # 同一ユーザーの閲覧履歴件数が上限を超えた場合の処理
+    histories_stock_limit = 10
+    histories = current_user.browsing_histories.all
+    if histories.count > histories_stock_limit
+      histories[0].destroy
+    end
   end
   
   def destroy

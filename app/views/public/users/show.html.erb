@@ -7,6 +7,9 @@
     <% end %>
     <div class="ml-auto mt-3">
       <% if @user == current_user && @user.name != "guestuser" %>
+        <%= link_to browse_user_path(@user), class: 'btn btn-outline-info btn-sm' do %>
+          <i class="fas fa-book-open"></i> 閲覧履歴
+        <% end %>
         <%= link_to favorites_user_path(@user), class: 'btn btn-outline-info btn-sm' do %>
           <i class="fas fa-heart"></i> お気に入り
         <% end %>

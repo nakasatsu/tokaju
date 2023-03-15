@@ -3,6 +3,12 @@ class Public::UsersController < ApplicationController
   before_action :is_matching_login_user, except: [:show]
   before_action :ensure_guest_user, only: [:edit]
   
+  def browse
+    @user = User.find(params[:id])
+    browsing_history = BrowsingHistory.where(user_id: @user.id).pluck(:post_id)
+    @posts = Post.find(browsing_history)
+  end
+  
   def favorites
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
