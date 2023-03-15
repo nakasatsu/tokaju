@@ -2,7 +2,7 @@
   <h3>"<%= @content %>"の検索結果</h3>
   <div class="row">
     <div class="col">
-      <p class="align-bottom pt-2">全 <%= @records.count %> 件</p>
+      <p class="align-bottom pt-2">全 <%= @initRecords.count %> 件</p>
     </div>
     <div class="col">
       <div class="text-right mb-3 mr-4">
@@ -22,6 +22,6 @@
     <%= render 'public/posts/index', posts: @records %>    
   </div>
   <div>
-    <!--< paginate @records %>-->
+    <%= paginate @records %>
   </div>
 </div>
