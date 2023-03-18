@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_admin!
   before_action :ensure_guest_user, only: [:unsubscribe, :destroy]
   
   def index
