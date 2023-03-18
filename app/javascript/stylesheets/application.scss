@@ -1,2 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c");
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+.wf-roundedmplus1c { 
+    font-family: "M PLUS Rounded 1c"; 
+}
+
+.kosugi-maru {
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+h3 {
+   font-family: "M PLUS Rounded 1c"; 
+}
+
+th {
+   font-family: 'Kosugi Maru', sans-serif; 
+}

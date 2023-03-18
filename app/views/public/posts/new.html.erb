@@ -2,13 +2,13 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-6 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light p-4 mb-0">レビューを書く</h5>
+      <h3 class="text-dark bg-light p-4 mb-0">レビューを書く</h3>
       <div class="form-body p-4">
         <%= form_with model: @post do |f| %>
           <%= f.label '商品画像' %><br>
           <%= f.file_field :image, accept: "image/*" %>
           <div class="field mb-3 mt-4">
-            <%= f.label '名称' %><br>
+            <%= f.label '名称' %>
             <%= f.text_field :item_name, placeholder: '例：　とうもろこし', class: 'form-control' %>
           </div>
           <div class="field mb-3">
@@ -31,7 +31,7 @@
             <%= f.label '評価' %><br>
             <%= f.hidden_field :rate %>
           </div>
-          <%= f.submit "投稿する", class: 'btn btn-info mt-5' %>
+          <%= f.submit "投稿する", class: 'btn btn-info mt-5 kosugi-maru' %>
         <% end %>
       </div>
     </div>

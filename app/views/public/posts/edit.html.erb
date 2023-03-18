@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-6 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light p-4 mb-0">レビューを編集</h5>
+      <h3 class="text-dark bg-light p-4 mb-0">レビューを編集</h3>
       <div class="form-body p-4">
         <%= image_tag @post.get_image(100, 100), class: 'mb-3' %>
         <%= form_with model: @post do |f| %>
@@ -32,7 +32,7 @@
             <%= f.label '評価' %><br>
             <%= render 'public/posts/rate', post: @post %>
           </div>
-          <%= f.submit "保存する", class: 'btn btn-info mt-5' %>
+          <%= f.submit "保存する", class: 'btn btn-info mt-5 kosugi-maru' %>
         <% end %>
       </div>
     </div>
