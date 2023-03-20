@@ -76,18 +76,24 @@ class Public::PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
+    # 元々の画像IDを記憶しておく
+    image_blob_id = @post.image.blob_id
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
     if tag_list == []
       tag = Tag.new()
       tag.tag_name = ""
       tag.save
+      # @postに元々の画像データをセットする
+      # ActiveStorageの場合はattachメソッドで画像をセットする
+      @post.image.attach(ActiveStorage::Blob.find(image_blob_id))
       flash[:notice] = "タグが入力されていません。"
-      render :new
+      render :edit
     elsif @post.update(post_params)
       @post.save_tags(tag_list)
       flash[:notice] = "レビューが更新されました。"
       redirect_to post_path(@post)
     else
+      @post.image.attach(ActiveStorage::Blob.find(image_blob_id))
       render :edit
     end
   end

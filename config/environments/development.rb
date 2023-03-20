@@ -75,4 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   
   config.hosts << "2c88b2ec6a4940cbbff7882fb5c46cbb.vfs.cloud9.ap-northeast-1.amazonaws.com"
+
+  # database is locked error
+  config.active_job.queue_adapter = :inline
 end
