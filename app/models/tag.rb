@@ -16,8 +16,8 @@ class Tag < ApplicationRecord
     end
     # tagに紐づくpostの情報を配列で取得
     return tags.inject(init = []) {|result, tag| result + tag.posts}
-    ##.idsは後から追加し、postのidのみを取得するように変更
-    # return tags.inject(init = []) {|result, tag| result + tag.posts.ids}
+      ##.idsは後から追加し、postのidのみを取得するように変更
+      # return tags.inject(init = []) {|result, tag| result + tag.posts.ids}
   end
   
 end

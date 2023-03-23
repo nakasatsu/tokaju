@@ -6,7 +6,7 @@
       <h3><%= link_to @user.name, user_path(@user) %> <small>さんのページ</small></h3>
     <% end %>
     <div class="ml-auto mt-3">
-      <% if @user == current_user  %>
+      <% if @user == current_user %>
         <%= link_to browse_user_path(@user), class: 'btn btn-outline-info btn-sm' do %>
           <i class="fas fa-book-open"></i> 閲覧履歴
         <% end %>
