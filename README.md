@@ -36,4 +36,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です。
+- [アイコン](https://fontawesome.com/)
+- [画像](http://design-ec.com/?p=55)
+- [ロゴ](https://www.canva.com/ja_jp/create/logos/)
