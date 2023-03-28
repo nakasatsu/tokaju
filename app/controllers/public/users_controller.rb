@@ -28,9 +28,14 @@ class Public::UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    # 元々の画像IDを記憶しておく
+    image_blob_id = @user.profile_image.blob_id
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
+      # @userに元々の画像データをセットする
+      # ActiveStorageの場合はattachメソッドで画像をセットする
+      @user.profile_image.attach(ActiveStorage::Blob.find(image_blob_id))
       render :edit
     end
   end
