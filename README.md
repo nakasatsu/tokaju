@@ -39,3 +39,5 @@
 - [Font Awesome](https://fontawesome.com/)
 - [EC design](http://design-ec.com/?p=55)
 - [Canva](https://www.canva.com/ja_jp/create/logos/)
+- [Pixabay](https://pixabay.com/ja/)
+- [ぱくたそ](https://www.pakutaso.com/)
