@@ -12,7 +12,7 @@
       <p><%= post_comment.comment %></p>
       <p class="mb-0">
         <% if post_comment.user == current_user %>
-          <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: 'btn btn-link btn-sm' %>
+          <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-link btn-sm' %>
         <% end %>
       </p>
     </div>

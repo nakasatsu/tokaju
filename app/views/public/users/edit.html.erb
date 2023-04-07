@@ -13,11 +13,11 @@
             <%= f.text_field :email, class: 'form-control' %>
           </div>
           <div class="field mb-3">
-            <%= f.label 'ユーザーネーム' %>
+            <%= f.label 'ユーザー名 (2~20字)' %>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class="field mb-3">
-            <%= f.label '自己紹介' %><br>
+            <%= f.label '自己紹介 (50字以内)' %><br>
             <%= f.text_area :introduction, class: 'form-control' %>
           </div>
           <%= f.submit "保存する", class: 'btn btn-info mt-5' %>
