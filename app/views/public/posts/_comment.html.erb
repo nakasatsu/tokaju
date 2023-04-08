@@ -2,13 +2,16 @@
   <div class="media mb-2 pb-2 border-bottom">
     <%= image_tag post_comment.user.get_profile_image(60, 60), class: "align-self-start mt-3 rounded-circle"; %>
     <div class="media-body ml-3">
-      <p class="mt-0 font-weight-bold">
-        <% if user_signed_in? %>
-          <%= link_to post_comment.user.name, user_path(post_comment.user) %>
-        <% elsif admin_signed_in? %>
-          <%= link_to post_comment.user.name, admin_user_path(post_comment.user) %>
-        <% end %>
-      </p>
+      <div class="d-flex">
+        <p class="mt-0 font-weight-bold">
+          <% if user_signed_in? %>
+            <%= link_to post_comment.user.name, user_path(post_comment.user) %>
+          <% elsif admin_signed_in? %>
+            <%= link_to post_comment.user.name, admin_user_path(post_comment.user) %>
+          <% end %>
+        </p>
+        <small class="text-muted ml-4 pb-0 mb-0 pt-1"><%= I18n.localize post_comment.created_at %></small>
+      </div>
       <p><%= post_comment.comment %></p>
       <p class="mb-0">
         <% if post_comment.user == current_user %>

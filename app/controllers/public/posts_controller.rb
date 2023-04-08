@@ -24,6 +24,7 @@ class Public::PostsController < ApplicationController
       tag.tag_name = ""
       tag.save
       flash[:notice] = "タグが入力されていません。"
+      @post.invalid?
       render :new
     elsif @post.save
       @post.save_tags(tag_list)

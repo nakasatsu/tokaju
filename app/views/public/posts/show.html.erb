@@ -10,6 +10,10 @@
       <%= render 'public/posts/rate', post: @post %>
       <table class="table mt-3">
         <tr>
+          <th>投稿日時</th>
+          <td><%= I18n.localize @post.created_at %></td>
+        </tr>
+        <tr>
           <th style="width: 30%">つくった人</th>
           <td style="width: 70%"><%= @post.produced_by %></td>
         </tr>
