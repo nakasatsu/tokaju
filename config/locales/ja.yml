@@ -3,3 +3,18 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M"
       short: "%Y/%m/%d"
+      
+  activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
+    attributes:
+      post:
+        item_name: 商品名
+        purchased_at: 購入場所
+        produced_by: 生産者・製造者
+        review: レビュー
+        rate: 評価
+      user:
+        name: ユーザー名
+        introduction: 自己紹介
