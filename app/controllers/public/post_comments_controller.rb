@@ -5,11 +5,13 @@ class Public::PostCommentsController < ApplicationController
     post = Post.find(params[:post_id])
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.post_id = post.id
+    # コメント未入力後、再度投稿する時に@messageの値をnilにすることにより、flashメッセージの表示をなくす
+    @message = nil
     unless @comment.save
-      flash[:notice] = "コメントを入力してください"
+      @message = "コメントを入力してください"
       @post = Post.find(params[:post_id])
       @post_comment = PostComment.new
-      render template: "public/posts/show"
+      render "error"
     end
     # if comment.save
     #   redirect_to post_path(post.id)

@@ -1,0 +1,4 @@
+<% if message.present? %>
+    <% flash[:notice] = message %>
+    <%= flash[:notice] %>
+<% end %>

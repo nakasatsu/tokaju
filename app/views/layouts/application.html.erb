@@ -14,7 +14,11 @@
   <body>
     <%= render 'layouts/header' %>
       <main class="my-3 mx-3">
-        <div class="my-3 text-warning">
+        <div class="my-3 text-warning" id="flash">
+          <!--非同期通信専用-->
+          <!--||=はnilガードで、左側(@message)がnilの時右側(""(空文字))を代入してくれる-->
+          <%= render partial: "layouts/flash", locals: {message: @message ||= ""} %>
+          <!--同期的な通信の時-->
           <%= flash[:notice] %>
         </div>
         <div class="text-right">
